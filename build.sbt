@@ -1,4 +1,4 @@
-name := "ferrier-admin"
+name := "niubola"
 
 version := "0.1.0"
 

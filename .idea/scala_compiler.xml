@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ScalaCompilerConfiguration">
     <profile name="sbt 1" modules="ferrier-admin_8050" />
-    <profile name="sbt 2" modules="ferrier-admin">
+    <profile name="sbt 2" modules="ferrier-admin,niubola">
       <option name="deprecationWarnings" value="true" />
       <option name="uncheckedWarnings" value="true" />
     </profile>
