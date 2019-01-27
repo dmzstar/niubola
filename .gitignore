@@ -1,1 +1,7 @@
 target
+.idea
+.settings
+project/project
+project/target
+console.devmode.log
+

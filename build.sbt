@@ -41,18 +41,17 @@ libraryDependencies += "org.primefaces" % "primefaces" % "6.2"
 
 val dsVersion = "1.9.0"
 
-// https://mvnrepository.com/artifact/org.apache.deltaspike.core/deltaspike-core-api
 libraryDependencies += "org.apache.deltaspike.core" % "deltaspike-core-api" % dsVersion
-
 libraryDependencies += "org.apache.deltaspike.core" % "deltaspike-core-impl" % dsVersion
-
-// https://mvnrepository.com/artifact/org.apache.deltaspike.modules/deltaspike-data-module-impl
 libraryDependencies += "org.apache.deltaspike.modules" % "deltaspike-data-module-api" % dsVersion
-// https://mvnrepository.com/artifact/org.apache.deltaspike.modules/deltaspike-data-module-impl
 libraryDependencies += "org.apache.deltaspike.modules" % "deltaspike-data-module-impl" % dsVersion
-
-// https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager
 libraryDependencies += "org.hibernate" % "hibernate-entitymanager" % "5.4.1.Final"
+
+
+// https://mvnrepository.com/artifact/com.github.adminfaces/admin-theme
+libraryDependencies += "com.github.adminfaces" % "admin-theme" % "1.0.0-RC20"
+libraryDependencies += "org.webjars.bower" % "font-awesome" % "4.7.0"
+
 
 
 

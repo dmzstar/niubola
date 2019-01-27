@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="sbt: com.github.adminfaces:admin-theme:1.0.0-RC20:jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/com.github.adminfaces/admin-theme/jars/admin-theme-1.0.0-RC20.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
