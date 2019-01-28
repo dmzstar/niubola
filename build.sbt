@@ -47,10 +47,12 @@ libraryDependencies += "org.apache.deltaspike.modules" % "deltaspike-data-module
 libraryDependencies += "org.apache.deltaspike.modules" % "deltaspike-data-module-impl" % dsVersion
 libraryDependencies += "org.hibernate" % "hibernate-entitymanager" % "5.4.1.Final"
 
-
 // https://mvnrepository.com/artifact/com.github.adminfaces/admin-theme
-libraryDependencies += "com.github.adminfaces" % "admin-theme" % "1.0.0-RC20"
-libraryDependencies += "org.webjars.bower" % "font-awesome" % "4.7.0"
+//libraryDependencies += "com.github.adminfaces" % "admin-theme" % "1.0.0-RC20"
+//libraryDependencies += "org.webjars.bower" % "font-awesome" % "4.7.0"
+// https://mvnrepository.com/artifact/com.github.adminfaces/admin-template
+libraryDependencies += "com.github.adminfaces" % "admin-template" % "1.0.0-RC20"
+
 
 
 
