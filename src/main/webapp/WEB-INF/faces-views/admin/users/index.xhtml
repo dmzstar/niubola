@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
                 template="/admin.xhtml">
@@ -59,7 +60,37 @@
     </ui:define>
 
     <ui:define name="body">
-            <h2>Page body</h2>
+
+        <h:form>
+            #{testPage.hello()}
+        <p:dataTable var="car" value="#{testPage.data}" lazy="true"
+                     paginator="true" rows="30">
+            <p:column headerText="Id">
+                <h:outputText value="#{car.id}" />
+            </p:column>
+
+            <p:column headerText="Year">
+                <h:outputText value="#{car.username}" />
+            </p:column>
+
+            <p:column headerText="Year">
+                <p:commandButton value="删除" action="#{admin_users.listModel.remove(car.id)}"
+                    update="@form">
+
+
+
+                </p:commandButton>
+            </p:column>
+
+        </p:dataTable>
+
+            <p:confirmDialog global="true" showEffect="fade" hideEffect="explode">
+                <p:commandButton title="GDelYesButton" value="Yes" styleClass="ui-confirmdialog-yes"/>
+                <p:commandButton title="GDelNoButton" value="No" styleClass="ui-confirmdialog-no" />
+            </p:confirmDialog>
+
+        </h:form>
+
     </ui:define>
 
     <ui:define name="footer">

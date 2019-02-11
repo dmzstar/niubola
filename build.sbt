@@ -31,10 +31,15 @@ libraryDependencies ++= {
 
 scalacOptions in Test ++= Seq("-Yrangepos")
 
+// https://mvnrepository.com/artifact/org.scala-lang/scala-reflect
+libraryDependencies += "org.scala-lang" % "scala-reflect" % "2.12.8"
+
 libraryDependencies += "javax.servlet" % "javax.servlet-api" % "3.1.0" % "provided"
 libraryDependencies += "org.jboss.weld.servlet" % "weld-servlet" % "2.4.8.Final"
 libraryDependencies += "javax.validation" % "validation-api" % "2.0.1.Final"
 libraryDependencies += "javax.websocket" % "javax.websocket-api" % "1.1" % "provided"
+libraryDependencies += "javax.ejb" % "javax.ejb-api" % "3.2.2"
+libraryDependencies += "org.ocpsoft.rewrite" % "rewrite-servlet" % "3.4.2.Final"
 libraryDependencies += "org.glassfish" % "javax.faces" % "2.3.8"
 libraryDependencies += "org.omnifaces" % "omnifaces" % "3.2"
 libraryDependencies += "org.primefaces" % "primefaces" % "6.2"
