@@ -44,16 +44,6 @@
     <orderEntry type="library" name="sbt: org.glassfish.jaxb:jaxb-runtime:2.3.1:jar" level="project" />
     <orderEntry type="library" name="sbt: org.glassfish:javax.faces:2.3.8:jar" level="project" />
     <orderEntry type="library" name="sbt: org.dom4j:dom4j:2.1.1:jar" level="project" />
-    <orderEntry type="library" name="sbt: org.apache.deltaspike.modules:deltaspike-proxy-module-impl-asm:1.9.0:jar" level="project" />
-    <orderEntry type="library" name="sbt: org.apache.deltaspike.modules:deltaspike-proxy-module-api:1.9.0:jar" level="project" />
-    <orderEntry type="library" name="sbt: org.apache.deltaspike.modules:deltaspike-partial-bean-module-impl:1.9.0:jar" level="project" />
-    <orderEntry type="library" name="sbt: org.apache.deltaspike.modules:deltaspike-partial-bean-module-api:1.9.0:jar" level="project" />
-    <orderEntry type="library" name="sbt: org.apache.deltaspike.modules:deltaspike-jpa-module-impl:1.9.0:jar" level="project" />
-    <orderEntry type="library" name="sbt: org.apache.deltaspike.modules:deltaspike-jpa-module-api:1.9.0:jar" level="project" />
-    <orderEntry type="library" name="sbt: org.apache.deltaspike.modules:deltaspike-data-module-impl:1.9.0:jar" level="project" />
-    <orderEntry type="library" name="sbt: org.apache.deltaspike.modules:deltaspike-data-module-api:1.9.0:jar" level="project" />
-    <orderEntry type="library" name="sbt: org.apache.deltaspike.core:deltaspike-core-impl:1.9.0:jar" level="project" />
-    <orderEntry type="library" name="sbt: org.apache.deltaspike.core:deltaspike-core-api:1.9.0:jar" level="project" />
     <orderEntry type="library" name="sbt: net.bytebuddy:byte-buddy:1.9.5:jar" level="project" />
     <orderEntry type="library" name="sbt: javax.xml.bind:jaxb-api:2.3.1:jar" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="sbt: javax.websocket:javax.websocket-api:1.1:jar" level="project" />
@@ -71,5 +61,15 @@
     <orderEntry type="library" name="sbt: org.scala-lang:scala-reflect:2.12.8:jar" level="project" />
     <orderEntry type="library" name="sbt: javax.ejb:javax.ejb-api:3.2.2:jar" level="project" />
     <orderEntry type="library" name="sbt: javax.transaction:javax.transaction-api:1.3:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.apache.deltaspike.core:deltaspike-core-api:1.8.2:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.apache.deltaspike.core:deltaspike-core-impl:1.8.2:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.apache.deltaspike.modules:deltaspike-data-module-api:1.8.2:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.apache.deltaspike.modules:deltaspike-data-module-impl:1.8.2:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.apache.deltaspike.modules:deltaspike-jpa-module-api:1.8.2:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.apache.deltaspike.modules:deltaspike-jpa-module-impl:1.8.2:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.apache.deltaspike.modules:deltaspike-partial-bean-module-api:1.8.2:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.apache.deltaspike.modules:deltaspike-partial-bean-module-impl:1.8.2:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.apache.deltaspike.modules:deltaspike-proxy-module-api:1.8.2:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.apache.deltaspike.modules:deltaspike-proxy-module-impl-asm:1.8.2:jar" level="project" />
   </component>
 </module>

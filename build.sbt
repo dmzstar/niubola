@@ -44,7 +44,7 @@ libraryDependencies += "org.glassfish" % "javax.faces" % "2.3.8"
 libraryDependencies += "org.omnifaces" % "omnifaces" % "3.2"
 libraryDependencies += "org.primefaces" % "primefaces" % "6.2"
 
-val dsVersion = "1.9.0"
+val dsVersion = "1.8.2"
 
 libraryDependencies += "org.apache.deltaspike.core" % "deltaspike-core-api" % dsVersion
 libraryDependencies += "org.apache.deltaspike.core" % "deltaspike-core-impl" % dsVersion
