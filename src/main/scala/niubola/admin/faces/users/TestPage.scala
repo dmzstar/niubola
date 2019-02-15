@@ -3,14 +3,15 @@ package niubola.admin.faces.users
 import java.util
 
 import javax.annotation.PostConstruct
+import javax.enterprise.context.RequestScoped
+import javax.faces.view.ViewScoped
 import javax.inject.{Inject, Named}
 import org.primefaces.model.{LazyDataModel, SortOrder}
 import niubola.models.User
-import org.apache.deltaspike.data.api.{EntityRepository, QueryResult}
 
 import scala.beans.BeanProperty
-import niubola.framework.faces.Page
-import org.apache.deltaspike.jpa.api.transaction.Transactional
+import niubola.framework.faces.{ModelHelpers, Page}
+import org.ocpsoft.rewrite.annotation.{Join, Parameter}
 
 
 trait EntityActions[T,R <: CommonRepository[T]]{
@@ -26,6 +27,51 @@ trait EntityActions[T,R <: CommonRepository[T]]{
 
   def save() = {
       repo.save(selected)
+  }
+
+}
+
+trait EditAction[E,PK] {
+
+}
+
+trait EditPageTrait[T]{
+
+  //@Parameter("id") //This annotation not work right, fixed later. The reason is elProvider not work.
+  @BeanProperty
+  var id:java.lang.Long = _
+  @BeanProperty
+  var selected:T = _
+
+}
+
+@Named
+@RequestScoped
+@Join(path="/admin/users/c/{id}", to="/admin/users/edit")
+class EditPage extends  EditPageTrait[User]{
+
+  println("========== EditPage.init")
+
+  @PostConstruct
+  def preRender = {
+    println("============= EditPage " + id)
+  }
+
+  def hello = {
+    println("=============== EditPage.hello")
+  }
+
+}
+
+@ViewScoped
+class StatefulModel extends Serializable with ModelHelpers
+
+@Named
+class TestPageModel extends StatefulModel with EntityActions[User,AdminUserRepository]{
+
+  @BeanProperty
+  var data = lazyModel[User]{
+    repo.all().orderDesc("o.id",false)
   }
 
 }
@@ -48,12 +94,25 @@ class TestPage extends Page with EntityActions[User,AdminUserRepository] {
 
   def hello = {}
 
-  @BeanProperty
-  var data = lazyModel[User]{
-    repo.all().orderDesc("o.id",false)
+  def edit(id:java.lang.Long) = {
+    "edit"
   }
 
+  @BeanProperty
+  @Inject
+  var model:TestPageModel = _
 
+  @BeanProperty
+  var cdata = LazyListModel[User]{ filters =>
+    filters.forEach((k,v) => {
+      println("cdata " + k)
+    })
+    val u = new User()
+    if(filters.get("id") != null) {
+      u.id = java.lang.Long.parseLong(filters.get("id").toString)
+    }
+    repo.findBy(u)
+  }
 
 }
 

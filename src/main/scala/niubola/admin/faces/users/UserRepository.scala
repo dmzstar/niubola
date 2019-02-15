@@ -27,4 +27,7 @@ trait AdminUserRepository extends CommonRepository[User]{
   @Query(value="select o from User o")
   def all():QueryResult[User]
 
+  //def findBy(user:User):QueryResult[User]
+
+
 }

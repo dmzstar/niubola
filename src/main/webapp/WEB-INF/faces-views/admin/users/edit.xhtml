@@ -6,6 +6,7 @@
                 xmlns:p="http://primefaces.org/ui"
                 template="/admin.xhtml">
 
+
     <ui:define name="head">
         <title>Liubola Admin</title>
         <style type="text/css">
@@ -62,7 +63,7 @@
      </ui:define>
 
     <ui:define name="top-menu">
-
+            abc     #{editPage.hello()}
     </ui:define>
 
       <ui:define name="title">
@@ -78,38 +79,6 @@
     <ui:define name="body">
 
         <h:form>
-        <p:dataTable var="car" value="#{testPage.model.data}" lazy="true"
-                     paginator="true" rows="30" widgetVar="usersTable"
-                     filteredValue="">
-
-            <f:facet name="header">
-                <p:outputPanel>
-                    <h:outputText value="Search all fields:" />
-                    <p:inputText id="globalFilter" style="width:150px" placeholder="Enter keyword"/>
-                </p:outputPanel>
-            </f:facet>
-
-            <p:column headerText="Id" filterBy="#{car.id}" footerText="contains" filterMatchMode="contains">
-                <h:outputText value="#{car.id}" />
-            </p:column>
-
-            <p:column headerText="Year">
-                <h:outputText value="#{car.username}" />
-            </p:column>
-
-            <p:column headerText="Year">
-                <p:commandButton value="删除" action="#{testPage.remove(car.id)}"
-                    update="@form">
-
-                    <p:confirm/>
-
-                </p:commandButton>
-                <p:commandButton value="编辑" action="#{testPage.edit(car.id)}" ajax="false">
-
-                </p:commandButton>
-            </p:column>
-
-        </p:dataTable>
 
             <p:confirmDialog global="true" showEffect="fade" hideEffect="explode">
                 <p:commandButton title="GDelYesButton" value="Yes" styleClass="ui-confirmdialog-yes"/>

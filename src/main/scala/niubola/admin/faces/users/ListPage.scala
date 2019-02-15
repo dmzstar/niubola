@@ -10,9 +10,11 @@ import niubola.models.User
 import scala.beans.BeanProperty
 import niubola.framework.domain.NiuModel
 import niubola.framework.faces.Page
+import org.ocpsoft.rewrite.annotation.Join
 import org.omnifaces.cdi.ViewScoped
 
 @Named("admin_users")
+@Join(path="/admin/users", to="/admin/users/index")
 class ListPage extends Page {
 
   @BeanProperty
