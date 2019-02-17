@@ -8,7 +8,7 @@ import javax.inject.{Inject, Named}
 import javax.persistence.EntityManager
 import org.apache.deltaspike.jpa.api.transaction.Transactional
 import org.omnifaces.cdi.Startup
-import niubola.models.User
+import niubola.models.{Article, User}
 
 @Startup
 @ApplicationScoped
@@ -38,6 +38,13 @@ class MyService{
       val user = new User
       user.setUsername(s"u$i")
       em.persist(user)
+
+      val article = new Article
+      article.title = "Article" + i
+      article.content = "Article content " + i
+
+      em.persist(article)
+
     }
   }
 

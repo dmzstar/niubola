@@ -13,6 +13,10 @@ import niubola.framework.faces.Page
 import org.ocpsoft.rewrite.annotation.Join
 import org.omnifaces.cdi.ViewScoped
 
+@Named("admin_indexPage")
+@RequestScoped
+class IndexPage
+
 @Named("admin_users")
 @Join(path="/admin/users", to="/admin/users/index")
 class ListPage extends Page {

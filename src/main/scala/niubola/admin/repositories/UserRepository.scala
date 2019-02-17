@@ -1,4 +1,4 @@
-package niubola.admin.faces.users
+package niubola.admin.repositories
 
 import niubola.models.User
 import org.apache.deltaspike.data.api.{EntityRepository, Query, QueryResult, Repository}

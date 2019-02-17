@@ -6,6 +6,7 @@ import javax.annotation.PostConstruct
 import javax.enterprise.context.RequestScoped
 import javax.faces.view.ViewScoped
 import javax.inject.{Inject, Named}
+import niubola.admin.repositories.{AdminUserRepository, CommonRepository}
 import org.primefaces.model.{LazyDataModel, SortOrder}
 import niubola.models.User
 

@@ -47,6 +47,9 @@ libraryDependencies += "org.ocpsoft.rewrite" % "rewrite-integration-faces" % "3.
 libraryDependencies += "org.glassfish" % "javax.faces" % "2.3.8"
 libraryDependencies += "org.omnifaces" % "omnifaces" % "3.2"
 libraryDependencies += "org.primefaces" % "primefaces" % "6.2"
+// https://mvnrepository.com/artifact/org.primefaces.extensions/primefaces-extensions
+libraryDependencies += "org.primefaces.extensions" % "primefaces-extensions" % "6.2.10"
+libraryDependencies += "org.primefaces.extensions" % "resources-ckeditor" % "6.2.10" % "runtime"
 libraryDependencies += "net.bootsfaces" % "bootsfaces" % "1.4.1"
 
 val dsVersion = "1.8.2"
