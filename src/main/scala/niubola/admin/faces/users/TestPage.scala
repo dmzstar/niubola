@@ -32,6 +32,40 @@ trait EntityActions[T,R <: CommonRepository[T]]{
 
 }
 
+trait EntityActions2[T,R <: CommonRepository[T]]{
+
+  @Inject
+  var repo:R = _
+  @BeanProperty
+  var id:java.lang.Long = _
+  @BeanProperty
+  var model:T = _
+
+  def load(id:java.lang.Long) = {
+    this.id = id
+    loadEntity
+  }
+
+  def loadEntity = {
+      if(id != null){
+        model = repo.findBy(id)
+      }
+  }
+
+  def remove() = {
+    repo.remove(model)
+  }
+
+  def removeById = {
+    repo.removeById(id)
+  }
+
+  def save() = {
+    repo.save(model)
+  }
+
+}
+
 trait EditAction[E,PK] {
 
 }

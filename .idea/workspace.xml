@@ -2,23 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b72462a-969e-4516-abca-34f0106685ba" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/scala/niubola/admin/faces/articles/ArticlesPage.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/niubola/admin/repositories/ArticlesRepositories.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/niubola/mobile/faces/IndexPage.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/niubola/mobile/faces/articles/IndexPage.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/niubola/mobile/faces/repositories/ArticleRepository.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/niubola/models/Article.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/niubola/models/EntityTraits.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-views/admin/articles/edit.xhtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-views/mobile/articles/show.xhtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-views/mobile/index.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/niubola.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/niubola.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-views/admin/articleCategories/edit.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.sbt" beforeDir="false" afterPath="$PROJECT_DIR$/build.sbt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/niubola/admin/faces/users/ListPage.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/niubola/admin/faces/users/ListPage.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/niubola/admin/faces/articles/ArticlesPage.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/niubola/admin/faces/articles/ArticlesPage.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/niubola/admin/faces/users/TestPage.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/niubola/admin/faces/users/TestPage.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/niubola/admin/faces/users/UserRepository.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/niubola/admin/repositories/UserRepository.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/niubola/application/Application.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/niubola/application/Application.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/niubola/models/Article.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/niubola/models/Article.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/niubola/models/EntityTraits.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/niubola/models/EntityTraits.scala" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -45,15 +34,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-views/hello.xhtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="44" selection-start-line="2" selection-start-column="44" selection-end-line="2" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build.sbt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="159">
@@ -62,10 +42,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-views/admin/articles/edit.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
+            <state relative-caret-position="975">
               <caret line="65" column="19" selection-start-line="65" selection-start-column="19" selection-end-line="65" selection-end-column="19" />
               <folding>
                 <element signature="n#style#0;n#p:commandButton#0;n#h:form#0;n#ui:define#7;n#ui:composition#0;n#!!top" expanded="true" />
@@ -77,10 +57,47 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/niubola/admin/faces/articles/ArticlesPage.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="86" selection-start-line="12" selection-start-column="86" selection-end-line="12" selection-end-column="86" />
+            <state relative-caret-position="316">
+              <caret line="23" column="23" lean-forward="true" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
               <folding>
-                <element signature="e#38#63#0" expanded="true" />
+                <element signature="e#38#75#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/niubola/models/Article.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1">
+              <caret line="11" column="35" lean-forward="true" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+              <folding>
+                <element signature="e#24#40#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-views/admin/articleCategories/edit.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="155">
+              <caret line="63" column="31" selection-start-line="63" selection-start-column="31" selection-end-line="63" selection-end-column="31" />
+              <folding>
+                <element signature="n#style#0;n#p:commandButton#0;n#h:form#0;n#ui:define#7;n#ui:composition#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#ui:define#8;n#ui:composition#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/niubola/models/EntityTraits.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="60" lean-forward="true" selection-start-line="15" selection-start-column="60" selection-end-line="15" selection-end-column="60" />
+              <folding>
+                <element signature="e#24#40#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -96,45 +113,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/niubola/admin/repositories/ArticlesRepositories.scala">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/niubola/admin/faces/users/TestPage.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="62" selection-start-line="6" selection-start-column="62" selection-end-line="6" selection-end-column="62" />
+            <state relative-caret-position="10">
+              <caret line="34" column="49" lean-forward="true" selection-start-line="34" selection-start-column="49" selection-end-line="34" selection-end-column="49" />
               <folding>
-                <element signature="e#36#62#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-views/admin/users/index.xhtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1200">
-              <caret line="80" column="54" selection-start-line="80" selection-start-column="54" selection-end-line="80" selection-end-column="54" />
-              <folding>
-                <element signature="n#style#0;n#p:inputText#0;n#p:outputPanel#0;n#f:facet#0;n#p:dataTable#0;n#h:form#0;n#ui:define#7;n#ui:composition#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-views/admin/users/edit.xhtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="20" column="75" selection-start-line="20" selection-start-column="75" selection-end-line="20" selection-end-column="75" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/niubola/models/Article.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
-              <folding>
-                <element signature="e#24#50#0" expanded="true" />
+                <element signature="e#35#51#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -190,9 +174,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-views/admin/users/edit.xhtml" />
         <option value="$PROJECT_DIR$/src/main/scala/niubola/framework/faces/Page.scala" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-views/admin/users/index.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/scala/niubola/admin/faces/users/TestPage.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/niubola/models/EntityTraits.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/niubola/models/Article.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/niubola/admin/faces/users/ListPage.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/niubola/application/Application.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/niubola/mobile/faces/repositories/ArticleRepository.scala" />
@@ -200,9 +181,13 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-views/mobile/index.xhtml" />
         <option value="$PROJECT_DIR$/src/main/scala/niubola/mobile/faces/articles/IndexPage.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/niubola/admin/repositories/ArticlesRepositories.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/niubola/admin/faces/articles/ArticlesPage.scala" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-views/admin/articles/edit.xhtml" />
         <option value="$PROJECT_DIR$/build.sbt" />
+        <option value="$PROJECT_DIR$/src/main/scala/niubola/admin/faces/users/TestPage.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/niubola/admin/faces/articles/ArticlesPage.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/niubola/models/EntityTraits.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/niubola/models/Article.scala" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-views/admin/articleCategories/edit.xhtml" />
       </list>
     </option>
   </component>
@@ -422,7 +407,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550373178590" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550499603567" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
@@ -432,11 +417,11 @@
       <recent name="$PROJECT_DIR$/src/main/resources/META-INF" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-views/admin/articleCategories" />
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-views/admin/articles" />
       <recent name="$PROJECT_DIR$/src/main/scala/niubola/mobile/faces/articles" />
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-views/mobile/articles" />
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-views/mobile" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-views/admin/users" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -527,6 +512,7 @@
     </option>
     <option name="modificationStamps">
       <map>
+        <entry key="$PROJECT_DIR$" value="6171585744000" />
         <entry key="$PROJECT_DIR$/build.sbt" value="2263119602" />
         <entry key="$PROJECT_DIR$/project/build.properties" value="2125951362" />
         <entry key="$PROJECT_DIR$/project/eclipse.sbt" value="3567733706" />
@@ -590,55 +576,6 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/beans.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.classpath" />
-    <entry file="file://$PROJECT_DIR$/.project" />
-    <entry file="file://$PROJECT_DIR$/src/main/scala/niubola/admin/faces/HelloWorld.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/niubola/admin/faces/Hello.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
-          <folding>
-            <element signature="e#29#66#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/niubola/admin/faces/Hi.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-          <folding>
-            <element signature="e#29#66#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/console.devmode.log">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/.keep" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/logback.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -767,32 +704,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/niubola/framework/faces/Page.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="33" column="10" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
-          <folding>
-            <element signature="e#33#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/niubola/models/User.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="25" lean-forward="true" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
           <folding>
             <element signature="e#24#84#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/niubola/models/EntityTraits.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
-          <folding>
-            <element signature="e#24#69#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -916,12 +833,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/niubola/models/Article.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/niubola/admin/repositories/ArticlesRepositories.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+        <state relative-caret-position="90">
+          <caret line="6" column="62" selection-start-line="6" selection-start-column="62" selection-end-line="6" selection-end-column="62" />
           <folding>
-            <element signature="e#24#50#0" expanded="true" />
+            <element signature="e#36#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.sbt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="50" column="87" selection-start-line="50" selection-start-column="87" selection-end-line="50" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/net.bootsfaces/bootsfaces/srcs/bootsfaces-1.4.1-sources.jar!/net/bootsfaces/component/button/Button.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="40" column="89" lean-forward="true" selection-start-line="40" selection-start-column="89" selection-end-line="40" selection-end-column="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/net.bootsfaces/bootsfaces/srcs/bootsfaces-1.4.1-sources.jar!/net/bootsfaces/component/button/ButtonRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5357">
+          <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/net.bootsfaces/bootsfaces/srcs/bootsfaces-1.4.1-sources.jar!/net/bootsfaces/component/button/ButtonBeanInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/net.bootsfaces/bootsfaces/srcs/bootsfaces-1.4.1-sources.jar!/net/bootsfaces/component/alert/Alert.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1137">
+          <caret line="44" column="31" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/niubola/framework/faces/Page.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="33" column="10" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
+          <folding>
+            <element signature="e#33#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-views/admin/articles/edit.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="975">
+          <caret line="65" column="19" selection-start-line="65" selection-start-column="19" selection-end-line="65" selection-end-column="19" />
+          <folding>
+            <element signature="n#style#0;n#p:commandButton#0;n#h:form#0;n#ui:define#7;n#ui:composition#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -935,47 +910,72 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/niubola/admin/faces/users/TestPage.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="17" column="48" lean-forward="true" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
+        <state relative-caret-position="10">
+          <caret line="34" column="49" lean-forward="true" selection-start-line="34" selection-start-column="49" selection-end-line="34" selection-end-column="49" />
           <folding>
             <element signature="e#35#51#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/niubola/admin/repositories/ArticlesRepositories.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="62" selection-start-line="6" selection-start-column="62" selection-end-line="6" selection-end-column="62" />
-          <folding>
-            <element signature="e#36#62#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/niubola/admin/faces/articles/ArticlesPage.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="86" selection-start-line="12" selection-start-column="86" selection-end-line="12" selection-end-column="86" />
+        <state relative-caret-position="316">
+          <caret line="23" column="23" lean-forward="true" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
           <folding>
-            <element signature="e#38#63#0" expanded="true" />
+            <element signature="e#38#75#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.sbt">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/niubola/models/EntityTraits.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="50" column="87" selection-start-line="50" selection-start-column="87" selection-end-line="50" selection-end-column="87" />
+        <state relative-caret-position="225">
+          <caret line="15" column="60" lean-forward="true" selection-start-line="15" selection-start-column="60" selection-end-line="15" selection-end-column="60" />
+          <folding>
+            <element signature="e#24#40#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-views/admin/articles/edit.xhtml">
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.8-sources.jar!/scala/annotation/meta/beanGetter.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="65" column="19" selection-start-line="65" selection-start-column="19" selection-end-line="65" selection-end-column="19" />
+        <state relative-caret-position="105">
+          <caret line="17" column="22" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.8-sources.jar!/scala/annotation/meta/getter.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.8-sources.jar!/scala/beans/BeanProperty.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="12" column="17" lean-forward="true" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/niubola/models/Article.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1">
+          <caret line="11" column="35" lean-forward="true" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+          <folding>
+            <element signature="e#24#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-views/admin/articleCategories/edit.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="63" column="31" selection-start-line="63" selection-start-column="31" selection-end-line="63" selection-end-column="31" />
           <folding>
             <element signature="n#style#0;n#p:commandButton#0;n#h:form#0;n#ui:define#7;n#ui:composition#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#ui:define#8;n#ui:composition#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

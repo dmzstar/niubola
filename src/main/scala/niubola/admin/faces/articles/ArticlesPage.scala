@@ -1,5 +1,6 @@
 package niubola.admin.faces.articles
 
+import javax.annotation.PostConstruct
 import javax.inject.Named
 import niubola.admin.faces.users.EntityActions
 import niubola.admin.repositories.AdminArticleRepository
@@ -15,8 +16,15 @@ class ArticleEditPage extends Page with EntityActions[Article,AdminArticleReposi
     @BeanProperty
     var content:String = _
 
+    @PostConstruct
+    def onCreate = {
+      selected = new Article
+    }
+
     def saveListener= {
       content = content.replaceAll("\\r|\\n", "")
+      selected.setContent(content)
+      save()
     }
 
 }
