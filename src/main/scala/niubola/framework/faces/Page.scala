@@ -1,18 +1,18 @@
 package niubola.framework.faces
 
-import java.util
-
-import javax.enterprise.context.RequestScoped
-import javax.faces.view.ViewScoped
 import org.apache.deltaspike.data.api.QueryResult
-import org.primefaces.model.{LazyDataModel, SortOrder}
+import org.omnifaces.util.Messages
+import org.primefaces.model.{FilterMeta, LazyDataModel, SortOrder}
+
+import java.util
+import javax.faces.view.ViewScoped
 
 
 trait ModelHelpers{
   def lazyModel[E](b: => QueryResult[E]) = {
     new LazyDataModel[AnyRef] {
 
-      override def load(first: Int, pageSize: Int, sortField: String, sortOrder: SortOrder, filters: util.Map[String, AnyRef]): util.List[AnyRef] = {
+      override def load(first: Int, pageSize: Int, sortField: String, sortOrder: SortOrder, filters: util.Map[String, FilterMeta]): util.List[AnyRef] = {
         val result = b
         filters.forEach((k,v) => {
           println(s"============ lazyModel k $k")
@@ -36,7 +36,7 @@ class Page extends Serializable {
   def lazyModel[E](b: => QueryResult[E]) = {
     new LazyDataModel[AnyRef] {
 
-      override def load(first: Int, pageSize: Int, sortField: String, sortOrder: SortOrder, filters: util.Map[String, AnyRef]): util.List[AnyRef] = {
+      override def load(first: Int, pageSize: Int, sortField: String, sortOrder: SortOrder, filters: util.Map[String, FilterMeta]): util.List[AnyRef] = {
         val result = b
         filters.forEach((k,v) => {
           println(s"============ lazyModel k $k")
@@ -54,11 +54,11 @@ class Page extends Serializable {
   }
 
 
-  def clazyModel[E](b:(util.Map[String, AnyRef]) => QueryResult[E]) = {
+  def clazyModel[E](b:(util.Map[String, FilterMeta]) => QueryResult[E]) = {
 
     new LazyDataModel[AnyRef] {
 
-      override def load(first: Int, pageSize: Int, sortField: String, sortOrder: SortOrder, filters: util.Map[String, AnyRef]): util.List[AnyRef] = {
+      override def load(first: Int, pageSize: Int, sortField: String, sortOrder: SortOrder, filters: util.Map[String, FilterMeta]): util.List[AnyRef] = {
 
         val result = b(filters)
         result.maxResults(pageSize)
@@ -75,11 +75,11 @@ class Page extends Serializable {
 
   }
 
-    def LazyListModel[E](b:(util.Map[String, AnyRef]) => java.util.List[E]) = {
+    def LazyListModel[E](b:(util.Map[String, FilterMeta]) => java.util.List[E]) = {
 
     new LazyDataModel[AnyRef] {
 
-      override def load(first: Int, pageSize: Int, sortField: String, sortOrder: SortOrder, filters: util.Map[String, AnyRef]): util.List[AnyRef] = {
+      override def load(first: Int, pageSize: Int, sortField: String, sortOrder: SortOrder, filters: util.Map[String, FilterMeta]): util.List[AnyRef] = {
 
         val result = b(filters)
         val list = result
@@ -90,6 +90,15 @@ class Page extends Serializable {
       }
     }
 
+  }
+
+
+  def successMessage(id:String,message:String) = {
+    Messages.addInfo(id,message)
+  }
+
+  def successMessage(message:String) = {
+    Messages.addInfo("",message)
   }
 
 }

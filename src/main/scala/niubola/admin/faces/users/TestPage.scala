@@ -1,18 +1,15 @@
 package niubola.admin.faces.users
 
-import java.util
+import niubola.admin.repositories.{AdminUserRepository, CommonRepository}
+import niubola.framework.faces.{ModelHelpers, Page}
+import niubola.models.User
+import org.primefaces.model.{FilterMeta, LazyDataModel, SortOrder}
 
+import java.util
 import javax.annotation.PostConstruct
-import javax.enterprise.context.RequestScoped
 import javax.faces.view.ViewScoped
 import javax.inject.{Inject, Named}
-import niubola.admin.repositories.{AdminUserRepository, CommonRepository}
-import org.primefaces.model.{LazyDataModel, SortOrder}
-import niubola.models.User
-
 import scala.beans.BeanProperty
-import niubola.framework.faces.{ModelHelpers, Page}
-import org.ocpsoft.rewrite.annotation.{Join, Parameter}
 
 
 trait EntityActions[T,R <: CommonRepository[T]]{
@@ -80,23 +77,7 @@ trait EditPageTrait[T]{
 
 }
 
-@Named
-@RequestScoped
-@Join(path="/admin/users/c/{id}", to="/admin/users/edit")
-class EditPage extends  EditPageTrait[User]{
 
-  println("========== EditPage.init")
-
-  @PostConstruct
-  def preRender = {
-    println("============= EditPage " + id)
-  }
-
-  def hello = {
-    println("=============== EditPage.hello")
-  }
-
-}
 
 @ViewScoped
 class StatefulModel extends Serializable with ModelHelpers
@@ -164,12 +145,16 @@ case class RQuery[R](){
 
 class MyDataModel[T] extends LazyDataModel[T]{
 
-  override def load(first: Int, pageSize: Int, sortField: String, sortOrder: SortOrder, filters: util.Map[String, AnyRef]): util.List[T] = {
+  /**
+   *  override def load(first: Int, pageSize: Int, sortField: String, sortOrder: SortOrder, filters: util.Map[String, AnyRef]): util.List[T] = {
+   *  load(new PageRequest(first,pageSize,sortField,sortOrder,filters))
+   *  }
+   */
 
-
-
+  override def load(first: Int, pageSize: Int, sortField: String, sortOrder: SortOrder, filters: util.Map[String, FilterMeta]): util.List[T] = {
     load(new PageRequest(first,pageSize,sortField,sortOrder,filters))
   }
+
 
   def load(pageRequest: PageRequest):util.List[T] = {
 
@@ -178,7 +163,7 @@ class MyDataModel[T] extends LazyDataModel[T]{
 
 }
 
-class PageRequest(first:Int,pageSize:Int,sortField: String=null, sortOrder: SortOrder=null, filters: util.Map[String, AnyRef]=null){
+class PageRequest(first:Int,pageSize:Int,sortField: String=null, sortOrder: SortOrder=null, filters: util.Map[String, FilterMeta]=null){
 
 }
 

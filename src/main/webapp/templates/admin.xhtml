@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="/admin.xhtml">
+
+    <ui:define name="head">
+        <title>Liubola Admin</title>
+        <style type="text/css">
+    .ui-datatable .ui-datatable-header {
+        text-align: right !important;
+    }
+
+    .ui-button-text-only .ui-button-text {
+        padding: 0.3em 0.4em;
+    }
+
+    .ui-selectcheckboxmenu-panel .ui-selectcheckboxmenu-header .ui-chkbox {
+        visibility: hidden;
+    }
+
+    .ui-filter-column .ui-column-customfilter .custom-filter {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .year-spinner input {
+        width: 100%;
+        box-sizing: border-box;
+    }
+</style>
+    </ui:define>
+
+    <ui:define name="logo-lg">
+        Liubola Admin
+    </ui:define>
+
+    <ui:define name="logo-mini">
+        Admin Users
+    </ui:define>
+
+    <ui:define name="menu">
+        <ul class="sidebar-menu" data-widget="tree">
+
+
+            <li>
+                <p:link href="/admin" onclick="clearBreadCrumbs()">
+                    <i class="fa fa-home"></i>
+                    <span>Home</span>
+                </p:link>
+            </li>
+
+
+                <li class="header">
+                    General
+                </li>
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-laptop"></i>
+                    <span>Users</span>
+                    <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+                </a>
+
+                <ul class="treeview-menu">
+                    <li>
+                        <p:link href="/admin/users">
+                            <i class="fa fa-bars"></i>
+                            <span>User List</span>
+                        </p:link>
+                    </li>
+                    <li>
+                        <p:link href="/admin/users/create">
+                            <i class="fa fa-sort-amount-desc"></i>
+                            <span>User Create</span>
+                        </p:link>
+                    </li>
+                </ul>
+            </li>
+
+
+        <li class="treeview">
+        <a href="#">
+            <i class="fa fa-laptop"></i>
+            <span>Articles</span>
+            <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+        </a>
+
+        <ul class="treeview-menu">
+            <li>
+                <p:link href="/pages/components/accordion.xhtml">
+                    <i class="fa fa-bars"></i>
+                    <span>Articles List</span>
+                </p:link>
+            </li>
+            <li>
+                <p:link href="/pages/components/autocomplete.xhtml">
+                    <i class="fa fa-sort-amount-desc"></i>
+                    <span>Article Create</span>
+                </p:link>
+            </li>
+        </ul>
+        </li>
+
+        </ul>
+
+     </ui:define>
+
+    <ui:define name="top-menu">
+
+    </ui:define>
+
+      <ui:define name="title">
+        <h2 class="align-center">
+            Welcome to the Niubola
+        </h2>
+    </ui:define>
+
+    <ui:define name="description">
+        A page description
+    </ui:define>
+
+    <ui:define name="body">
+
+        <h:form>
+            <p:growl id="growl"/>
+        <p:dataTable var="car" value="#{testPage.model.data}" lazy="true"
+                     paginator="true" rows="30" widgetVar="usersTable"
+                     filteredValue="" id="dataTable">
+
+            <f:facet name="header">
+                <p:outputPanel>
+                    <h:outputText value="Search all fields:" />
+                    <p:inputText id="globalFilter" style="width:150px" placeholder="Enter keyword"/>
+                </p:outputPanel>
+            </f:facet>
+
+            <p:column headerText="Id" filterBy="#{car.id}" footerText="contains" filterMatchMode="contains">
+                <h:outputText value="#{car.id}" />
+            </p:column>
+
+            <p:column headerText="Year">
+                <h:outputText value="#{car.username}" />
+            </p:column>
+
+            <p:column headerText="Year">
+                <p:commandButton value="删除" action="#{admin_users.remove(car.id)}" update="dataTable">
+
+                    <p:confirm/>
+
+                </p:commandButton>
+                <p:button value="编辑" outcome="edit">
+                    <f:param name="id" value="#{car.id}" />
+                </p:button>
+            </p:column>
+
+        </p:dataTable>
+
+            <p:confirmDialog global="true" showEffect="fade" hideEffect="explode">
+                <p:commandButton title="GDelYesButton" value="Yes" styleClass="ui-confirmdialog-yes"/>
+                <p:commandButton title="GDelNoButton" value="No" styleClass="ui-confirmdialog-no" />
+            </p:confirmDialog>
+
+        </h:form>
+
+    </ui:define>
+
+    <ui:define name="footer">
+          <a target="_blank"
+           href="https://github.com/adminfaces/">
+            Copyright (C) 2017 - AdminFaces
+        </a>
+
+        <div class="pull-right hidden-xs" style="color: gray">
+            <i>1.0.0</i>
+        </div>
+    </ui:define>
+
+</ui:composition>

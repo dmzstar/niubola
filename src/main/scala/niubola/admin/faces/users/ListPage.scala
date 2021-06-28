@@ -1,28 +1,35 @@
 package niubola.admin.faces.users
 
-import java.util
-
-import javax.annotation.PostConstruct
-import javax.enterprise.context.{Dependent, RequestScoped}
-import javax.inject.{Inject, Named}
-import niubola.models.User
-
-import scala.beans.BeanProperty
+import niubola.admin.repositories.UserRepository
 import niubola.framework.domain.NiuModel
 import niubola.framework.faces.Page
-import org.ocpsoft.rewrite.annotation.Join
-import org.omnifaces.cdi.ViewScoped
+import niubola.models.User
+import org.ocpsoft.rewrite.annotation.{Join, RequestAction}
+import org.ocpsoft.rewrite.el.ELBeanName
+import org.ocpsoft.rewrite.faces.annotation.{Deferred, IgnorePostback}
+
+import java.beans.Transient
+import java.util
+import javax.annotation.PostConstruct
+import javax.enterprise.context.{Dependent, RequestScoped}
+import javax.faces.view.ViewScoped
+import javax.inject.{Inject, Named}
+import scala.beans.BeanProperty
 
 @Named("admin_indexPage")
 @RequestScoped
 class IndexPage
 
+
+@ViewScoped
 @Named("admin_users")
 @Join(path="/admin/users", to="/admin/users/index")
 class ListPage extends Page {
 
   @BeanProperty
   var list = new util.ArrayList[User]()
+
+  @Transient
   @Inject
   @BeanProperty
   var listModel:UserListModel = _
@@ -37,7 +44,85 @@ class ListPage extends Page {
     println("=================== " + listModel.listAll)
   }
 
+  def remove(id:Long) = {
+    listModel.remove(id)
+    successMessage("User removed!")
+  }
+
 }
+
+@ViewScoped
+@ELBeanName("admin_users_edit")
+@Named("admin_users_edit")
+//@Join(path="/admin/users/{id}", to="/admin/users/edit")
+class EditPage extends Page {
+
+  @BeanProperty
+  /**
+  @Deferred
+  @Parameter
+  @Matches("[a-z0-9]+")
+  */
+  var id:Long = _
+
+  @BeanProperty
+  var user:User = new User
+
+  @Inject
+  var userRepository:UserRepository = _
+
+  @Deferred
+  @RequestAction
+  @IgnorePostback
+  def onLoad = {
+
+    println(s">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> onload $id")
+    //id = Faces.getRequestParameter("")
+    user = userRepository.findBy(id)
+
+  }
+
+
+  def save() = {
+    println(s">>>>>>>>>>>>>>>>>>>>>>>>>>>>> save $id")
+    user = userRepository.findBy(id)
+  }
+
+}
+
+
+@ViewScoped
+@ELBeanName("admin_users_create")
+@Named("admin_users_create")
+//@Join(path="/admin/users/create", to="/admin/users/create")
+class CreatePage extends Page {
+
+
+
+  @BeanProperty
+  var user:User = new User
+
+  @Inject
+  var userRepository:UserRepository = _
+
+  @Deferred
+  @RequestAction
+  @IgnorePostback
+  def onLoad = {
+
+    //println(s">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> onload $id")
+    //user = userRepository.findBy(id)
+
+  }
+
+
+  def save() = {
+    //println(s">>>>>>>>>>>>>>>>>>>>>>>>>>>>> save $id")
+    //user = userRepository.findBy(id)
+  }
+
+}
+
 
 @Dependent
 class UserListModel extends NiuModel[User,Long] {

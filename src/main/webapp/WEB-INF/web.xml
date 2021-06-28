@@ -16,5 +16,10 @@
     </context-param>
 
 
+    <context-param>
+        <param-name>org.omnifaces.FACES_VIEWS_ENABLED</param-name>
+        <param-value>true</param-value>
+    </context-param>
+
 
 </web-app>
