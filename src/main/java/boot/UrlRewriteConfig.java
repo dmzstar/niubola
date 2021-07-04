@@ -31,63 +31,96 @@ public class UrlRewriteConfig extends HttpConfigurationProvider {
         System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
                 + Resource.exists("/admin/users/create.xhtml"));
 
-        /**
-         return ConfigurationBuilder.begin()
-         .addRule(Join.path("/my/create/{path}")
-         .to("/admin/users/create.jsf"))
-         .when(Resource.exists("/admin/users/create.xhtml"))
-         .otherwise(Redirect.temporary("http://www.baidu.com"))
-         .perform(Log.message(Logger.Level.INFO, "Client requested path: {path}"));
-         */
-
-        /**
-         return ConfigurationBuilder.begin()
-         .addRule(Join.path("/my/create/{path}")
-
-         .to("/admin/users/{path}.jsf"))
-         .perform(Log.message(Logger.Level.INFO, "Client requested path: {path}"));
-         */
-
         config = ConfigurationBuilder.begin();
 
         /**
         restMapping("/admin/users/{path}");
         restMapping("/admin/articles/{path}");
         */
-        restMapping("/admin/{path}");
+        restPages("/admin/users/:{path}");
+        restPages("/admin/:{path}");
+        //restMapping("/admin/:{path}");
 
-        if(true){
-            return config;
-        }
+        return config;
 
-        return ConfigurationBuilder.begin()
-                .addRule()
-                .when(Direction.isInbound().and(Path.matches("/my/create/{path}"))
-                .and(Resource.exists("/admin/users/create.xhtml")))
-                .perform(Log.message(Logger.Level.INFO, "Client requested path: {path}")
-                        .and(Forward.to("/admin/users/create.jsf")))
-                .where("path").matches("new")
-                .addRule()
-                .when(Direction.isInbound().and(Path.matches("/my/create/{path}"))
-                .and(Resource.exists("/admin/users/{path}.xhtml")))
-                .perform(Log.message(Logger.Level.INFO, "Client requested path: {path}")
-                        .and(Forward.to("/admin/users/{path}.jsf")))
-                .where("path").matches(".*");
 
-        /**
-         return ConfigurationBuilder.begin().addRule().
-         perform(Log.message(Logger.Level.INFO, "Rewrite actived."));
-         */
     }
 
 
-    private void restMapping(String url){
-                 config.addRule()
+    private void restPages(String namespace,String url,String defaultPage){
+
+        // /admin/:{path} will mapping to /admin/index.[xhtml|jsf|faces],or setting the default to such as ‘list.jsf’
+        var namespaceUrl = namespace;
+        config.addRule()
+                .when(Direction.isInbound().and(Path.matches(namespaceUrl))
+                        .and(Resource.exists(namespaceUrl + "/" + defaultPage)))
+                    .perform(Log.message(Logger.Level.INFO, "Client requested path: " + namespace + "/" + defaultPage)
+                            .and(Forward.to(namespaceUrl + "/" + defaultPage)));
+
+       config.addRule()
                 .when(Direction.isInbound().and(Path.matches(url))
                         .and(Resource.exists(url + ".xhtml")))
                 .perform(Log.message(Logger.Level.INFO, "Client requested path: {path}")
                         .and(Forward.to(url + ".jsf")))
                 .where("path").matches(".*");
+
+
+
+    }
+
+    private void restPages(String url){
+
+        var defaultPage = "list.xhtml";
+        var rurl = url.replaceFirst("/:","/");
+        // /admin/:{path} will mapping to /admin/index.[xhtml|jsf|faces],or setting the default to such as ‘list.jsf’
+        var namespaceUrl = "";
+        if(url.lastIndexOf(":") > 0){
+            namespaceUrl = url.substring(0,url.lastIndexOf(":") - 1);
+           restPages(namespaceUrl,rurl,defaultPage);
+        }
+
+
+    }
+
+    private void restMapping(String url){
+
+                /**
+                config.addRule()
+                .when(Direction.isInbound().and(Path.matches(url))
+                        .and(Resource.exists(url + ".xhtml")))
+                .perform(Log.message(Logger.Level.INFO, "Client requested path: {path}")
+                        .and(Forward.to(url + ".jsf")))
+                .where("path").matches(".*");
+                 */
+
+        var subPaths = url.split("/");
+        var rurl = url;
+        var namespace = "";
+        var namespaceUrl = "/admin/users";
+        if(url.lastIndexOf(":") > 0){
+            //rurl = url.substring(0,url.lastIndexOf(":") - 1);
+            rurl = url.replaceFirst("/:","/");
+
+        }
+
+
+        config.addRule()
+                .when(Direction.isInbound().and(Path.matches(namespaceUrl))
+                        .and(Resource.exists(namespaceUrl + "/index.xhtml")))
+                .perform(Log.message(Logger.Level.INFO, "Client requested path: }")
+                        .and(Forward.to(namespaceUrl + "/index.jsf")));
+                //.where("path").matches(".*");
+
+
+        var co = config.addRule()
+                .when(Direction.isInbound().and(Path.matches(url))
+                        .and(Resource.exists(url + ".xhtml")))
+                .perform(Log.message(Logger.Level.INFO, "Client requested path: {path}")
+                        .and(Forward.to(url + ".jsf")))
+                .where("path").matches(".*");
+
+
+
     }
 
 

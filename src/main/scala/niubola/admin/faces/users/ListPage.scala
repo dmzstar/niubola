@@ -4,7 +4,7 @@ import niubola.admin.repositories.UserRepository
 import niubola.framework.domain.NiuModel
 import niubola.framework.faces.Page
 import niubola.models.User
-import org.ocpsoft.rewrite.annotation.{Join, RequestAction}
+import org.ocpsoft.rewrite.annotation.RequestAction
 import org.ocpsoft.rewrite.el.ELBeanName
 import org.ocpsoft.rewrite.faces.annotation.{Deferred, IgnorePostback}
 
@@ -23,7 +23,7 @@ class IndexPage
 
 @ViewScoped
 @Named("admin_users")
-@Join(path="/admin/users", to="/admin/users/index")
+//@Join(path="/admin/users", to="/admin/users/index")
 class ListPage extends Page {
 
   @BeanProperty

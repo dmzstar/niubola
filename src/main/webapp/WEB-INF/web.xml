@@ -18,7 +18,7 @@
 
     <context-param>
         <param-name>org.omnifaces.FACES_VIEWS_ENABLED</param-name>
-        <param-value>true</param-value>
+        <param-value>false</param-value>
     </context-param>
 
 
