@@ -1,7 +1,7 @@
 package niubola.framework.faces
 
 import org.apache.deltaspike.data.api.QueryResult
-import org.omnifaces.util.Messages
+import org.omnifaces.util.{Faces, Messages}
 import org.primefaces.model.{FilterMeta, LazyDataModel, SortOrder}
 
 import java.util
@@ -32,6 +32,10 @@ trait ModelHelpers{
 
 @ViewScoped
 class Page extends Serializable {
+
+  def param(name:String):String = {
+    Faces.getRequestParameter(name)
+  }
 
   def lazyModel[E](b: => QueryResult[E]) = {
     new LazyDataModel[AnyRef] {

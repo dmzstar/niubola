@@ -2,10 +2,10 @@ package boot;
 
 import org.ocpsoft.logging.Logger;
 import org.ocpsoft.rewrite.annotation.RewriteConfiguration;
-import org.ocpsoft.rewrite.config.Configuration;
-import org.ocpsoft.rewrite.config.ConfigurationBuilder;
-import org.ocpsoft.rewrite.config.Direction;
-import org.ocpsoft.rewrite.config.Log;
+import org.ocpsoft.rewrite.config.*;
+import org.ocpsoft.rewrite.el.El;
+import org.ocpsoft.rewrite.faces.config.PhaseBinding;
+import org.ocpsoft.rewrite.faces.config.PhaseOperation;
 import org.ocpsoft.rewrite.servlet.config.Forward;
 import org.ocpsoft.rewrite.servlet.config.Redirect;
 import org.ocpsoft.rewrite.servlet.config.HttpConfigurationProvider;
@@ -13,6 +13,7 @@ import org.ocpsoft.rewrite.servlet.config.Path;
 import org.ocpsoft.rewrite.servlet.config.Resource;
 import org.ocpsoft.rewrite.servlet.config.rule.Join;
 
+import javax.faces.event.PhaseId;
 import javax.servlet.ServletContext;
 
 @RewriteConfiguration
@@ -24,6 +25,7 @@ public class UrlRewriteConfig extends HttpConfigurationProvider {
     }
 
     private ConfigurationBuilder config = null;
+    private String defaultRestPage = "list.xhtml";
 
     @Override
     public Configuration getConfiguration(final ServletContext context) {
@@ -49,13 +51,30 @@ public class UrlRewriteConfig extends HttpConfigurationProvider {
 
     private void restPages(String namespace,String url,String defaultPage){
 
+        listMapping(namespace);
+        showMapping(namespace);
+        editMapping(namespace);
+
+        /**
+        //add crud rule etc /admin/users/edit/1
+        config.addRule(
+                Join.path("/admin/users/edit/{id}").to("/admin/users/edit.xhtml")
+        ).perform(
+                PhaseOperation.enqueue(
+                        Invoke.binding(El.retrievalMethod("admin_users_edit.onload"))
+                ).after(PhaseId.RESTORE_VIEW)
+        );
+        */
+
         // /admin/:{path} will mapping to /admin/index.[xhtml|jsf|faces],or setting the default to such as ‘list.jsf’
+        /**
         var namespaceUrl = namespace;
         config.addRule()
                 .when(Direction.isInbound().and(Path.matches(namespaceUrl))
                         .and(Resource.exists(namespaceUrl + "/" + defaultPage)))
                     .perform(Log.message(Logger.Level.INFO, "Client requested path: " + namespace + "/" + defaultPage)
                             .and(Forward.to(namespaceUrl + "/" + defaultPage)));
+        */
 
        config.addRule()
                 .when(Direction.isInbound().and(Path.matches(url))
@@ -65,18 +84,64 @@ public class UrlRewriteConfig extends HttpConfigurationProvider {
                 .where("path").matches(".*");
 
 
+    }
 
+
+    public void listMapping(String resource){
+
+
+        config.addRule(
+                Join.path(resource).to(resource + "/index.xhtml")
+        ).perform(
+                PhaseOperation.enqueue(
+                        Invoke.binding(El.retrievalMethod("admin_users_indexPage.onload"))
+                ).after(PhaseId.RESTORE_VIEW)
+        );
+
+        /**
+        config.addRule()
+                .when(Direction.isInbound().and(Path.matches(resource))
+                        .and(Resource.exists(resource + "/" + defaultRestPage)))
+                .perform(Log.message(Logger.Level.INFO, "Client requested path: " + resource + "/" + defaultRestPage)
+                        .and(Forward.to(resource + "/" + defaultRestPage)));
+        */
+
+    }
+
+    public void showMapping(String resource){
+
+        //add crud rule etc /admin/users/edit/1
+        config.addRule(
+                Join.path(resource + "/{id}").to(resource + "/show.xhtml")
+        )
+                .perform(
+                PhaseOperation.enqueue(
+                        Invoke.binding(El.retrievalMethod("admin_users_showPage.onload"))
+                ).after(PhaseId.RESTORE_VIEW)
+
+        ).where("id").bindsTo(PhaseBinding.to(El.property("admin_users_showPage.id")).after(PhaseId.RESTORE_VIEW));
+
+    }
+
+    public void editMapping(String resource){
+        //add crud rule etc /admin/users/edit/1
+        config.addRule(
+                Join.path(resource + "/edit/{id}").to(resource + "/edit.xhtml")
+        ).perform(
+                PhaseOperation.enqueue(
+                        Invoke.binding(El.retrievalMethod("admin_users_edit.onload"))
+                ).after(PhaseId.RESTORE_VIEW)
+        );
     }
 
     private void restPages(String url){
 
-        var defaultPage = "list.xhtml";
         var rurl = url.replaceFirst("/:","/");
         // /admin/:{path} will mapping to /admin/index.[xhtml|jsf|faces],or setting the default to such as ‘list.jsf’
         var namespaceUrl = "";
         if(url.lastIndexOf(":") > 0){
             namespaceUrl = url.substring(0,url.lastIndexOf(":") - 1);
-           restPages(namespaceUrl,rurl,defaultPage);
+           restPages(namespaceUrl,rurl,defaultRestPage);
         }
 
 

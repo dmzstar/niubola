@@ -4,7 +4,7 @@ import niubola.admin.repositories.UserRepository
 import niubola.framework.domain.NiuModel
 import niubola.framework.faces.Page
 import niubola.models.User
-import org.ocpsoft.rewrite.annotation.RequestAction
+import org.ocpsoft.rewrite.annotation.{Matches, Parameter, RequestAction}
 import org.ocpsoft.rewrite.el.ELBeanName
 import org.ocpsoft.rewrite.faces.annotation.{Deferred, IgnorePostback}
 
@@ -51,10 +51,54 @@ class ListPage extends Page {
 
 }
 
+
+@ViewScoped
+@ELBeanName("admin_users_indexPage")
+@Named("admin_users_indexPage")
+//@Join(path="/admin/users/{id}", to="/admin/users/edit.xhtml")
+class IndexTestPage extends Page {
+
+  @BeanProperty
+  /**
+  @Deferred
+  @Parameter
+  @Matches("[a-z0-9]+")
+   */
+  var id:Long = _
+
+  @BeanProperty
+  var user:User = new User
+
+  @Inject
+  var userRepository:UserRepository = _
+
+  /**
+  @Deferred
+  @RequestAction
+  @IgnorePostback
+  */
+  @IgnorePostback
+  def onload = {
+
+    println(s">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> onload $id")
+    //id = Faces.getRequestParameter("")
+    user = userRepository.findBy(id)
+
+  }
+
+
+  def save() = {
+    println(s">>>>>>>>>>>>>>>>>>>>>>>>>>>>> save $id")
+    user = userRepository.findBy(id)
+  }
+
+}
+
+
 @ViewScoped
 @ELBeanName("admin_users_edit")
 @Named("admin_users_edit")
-//@Join(path="/admin/users/{id}", to="/admin/users/edit")
+//@Join(path="/admin/users/{id}", to="/admin/users/edit.xhtml")
 class EditPage extends Page {
 
   @BeanProperty
@@ -74,10 +118,53 @@ class EditPage extends Page {
   @Deferred
   @RequestAction
   @IgnorePostback
-  def onLoad = {
+  def onload = {
 
     println(s">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> onload $id")
     //id = Faces.getRequestParameter("")
+    user = userRepository.findBy(id)
+
+  }
+
+
+  def save() = {
+    println(s">>>>>>>>>>>>>>>>>>>>>>>>>>>>> save $id")
+    user = userRepository.findBy(id)
+  }
+
+}
+
+@ViewScoped
+@ELBeanName("admin_users_showPage")
+@Named("admin_users_showPage")
+//@Join(path="/admin/users/{id}", to="/admin/users/show.xhtml")
+class ShowPage extends Page {
+
+  @BeanProperty
+  @Deferred
+  @Parameter
+  @Matches("[a-z0-9]+")
+  var id:Long = _
+
+  @BeanProperty
+  @Deferred
+  @Parameter("name")
+  @Matches("[a-z0-9]+")
+  var name:String = _
+
+  @BeanProperty
+  var user:User = new User
+
+  @Inject
+  var userRepository:UserRepository = _
+
+  @Deferred
+  @RequestAction
+  @IgnorePostback
+  def onload = {
+
+    name = param("name")
+    println(s">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> showPage onload id:$id, name:$name")
     user = userRepository.findBy(id)
 
   }
