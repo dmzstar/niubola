@@ -23,6 +23,7 @@
 
     <ui:define name="description">
         A page description
+        #{_page}
     </ui:define>
 
     <ui:define name="body">
@@ -34,15 +35,17 @@
             <p:panelGrid columns="2">
 
                 <p:outputLabel value="用户名" for="username"/>
-                <p:inputText id="username" required="true"
-                    value="#{admin_users_edit.user.username}"/>
+                <p:inputText id="username" required="true" value="#{_page.user.username}"/>
 
-                <p:outputLabel value="名称" for="name"/>
-                <p:inputText id="name" required="true"/>
+                <p:outputLabel value="名称" for="nickname"/>
+                <p:inputText id="nickname" required="true"/>
+
+                <p:outputLabel value="备注" for="remark"/>
+                <p:inputTextarea id="remark" rows="5" cols="30" maxlength="200" required="false" value="#{_page.user.remark}"/>
 
 
             </p:panelGrid>
-            <p:commandButton value="保存" style="margin-top:10px;" update="@form" action="#{admin_users_edit.save}"/>
+            <p:commandButton value="保存" style="margin-top:10px;" update="@form" action="#{_page.save}"/>
 
         </h:form>
 

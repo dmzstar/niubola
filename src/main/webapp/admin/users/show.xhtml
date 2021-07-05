@@ -7,17 +7,17 @@
                 template="/templates/admin.xhtml">
 
     <ui:define name="logo-mini">
-        Admin Users Edit
+        Admin Users Show
     </ui:define>
 
 
     <ui:define name="top-menu">
-            abc     #{editPage.hello()}
+           Top-Menu
     </ui:define>
 
       <ui:define name="title">
         <h2 class="align-center">
-            Welcome to the Niubola
+            Welcome to the Niubola Users Show
         </h2>
     </ui:define>
 
@@ -35,10 +35,10 @@
 
                 <p:outputLabel value="用户名" for="username"/>
                 <p:inputText id="username" required="true"
-                    value="#{admin_users_edit.user.username}"/>
+                    value="#{admin_users_showPage.user.username}"/>
 
-                <p:outputLabel value="名称" for="name"/>
-                <p:inputText id="name" required="true"/>
+                <p:outputLabel value="名称" for="password"/>
+                <p:password id="password" required="true" value="#{admin_users_showPage.user.password}"/>
 
 
             </p:panelGrid>

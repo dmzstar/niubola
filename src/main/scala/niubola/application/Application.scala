@@ -1,14 +1,14 @@
 package niubola.application
 
 import boot.Tem
-import javax.annotation.PostConstruct
-import javax.enterprise.context.ApplicationScoped
-import javax.enterprise.inject.Any
-import javax.inject.{Inject, Named}
-import javax.persistence.EntityManager
+import niubola.models.{Article, User}
 import org.apache.deltaspike.jpa.api.transaction.Transactional
 import org.omnifaces.cdi.Startup
-import niubola.models.{Article, User}
+
+import javax.annotation.PostConstruct
+import javax.enterprise.context.ApplicationScoped
+import javax.inject.Inject
+import javax.persistence.EntityManager
 
 @Startup
 @ApplicationScoped
@@ -37,6 +37,7 @@ class MyService{
     for(i <- 1 to 100){
       val user = new User
       user.setUsername(s"u$i")
+      user.setRemark(s"remark$i")
       em.persist(user)
 
       val article = new Article

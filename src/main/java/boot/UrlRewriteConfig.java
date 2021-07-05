@@ -26,6 +26,7 @@ public class UrlRewriteConfig extends HttpConfigurationProvider {
 
     private ConfigurationBuilder config = null;
     private String defaultRestPage = "list.xhtml";
+    private String pageBeanPackage = "niubola.admin.faces";
 
     @Override
     public Configuration getConfiguration(final ServletContext context) {
@@ -89,7 +90,7 @@ public class UrlRewriteConfig extends HttpConfigurationProvider {
 
     public void listMapping(String resource){
 
-
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> listMapping " + resource);
         config.addRule(
                 Join.path(resource).to(resource + "/index.xhtml")
         ).perform(
@@ -108,7 +109,18 @@ public class UrlRewriteConfig extends HttpConfigurationProvider {
 
     }
 
-    public void showMapping(String resource){
+    public void showMapping(String resource) {
+
+        try {
+
+            Class pageClass = Class.forName("niubola.admin.faces.users" + ".ShowPage");
+
+            //Checking
+
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
 
         //add crud rule etc /admin/users/edit/1
         config.addRule(
@@ -129,9 +141,12 @@ public class UrlRewriteConfig extends HttpConfigurationProvider {
                 Join.path(resource + "/edit/{id}").to(resource + "/edit.xhtml")
         ).perform(
                 PhaseOperation.enqueue(
+                        Invoke.binding(El.retrievalMethod("admin_users_edit.afterRestoreView"))
+                ).after(PhaseId.RESTORE_VIEW),
+                PhaseOperation.enqueue(
                         Invoke.binding(El.retrievalMethod("admin_users_edit.onload"))
                 ).after(PhaseId.RESTORE_VIEW)
-        );
+        ).where("id").bindsTo(PhaseBinding.to(El.property("admin_users_edit.id")).after(PhaseId.RESTORE_VIEW));
     }
 
     private void restPages(String url){

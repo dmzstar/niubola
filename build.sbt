@@ -9,8 +9,6 @@ scalaVersion := "2.12.14"
 
 val dsVersion = "1.9.5"
 val hibernateVersion = "5.4.1.Final"
-//val pfVersion = "8.0"
-//val pfeVersion = "8.0.4"
 
 val pfVersion = "8.0"
 val pfeVersion = "8.0.4"

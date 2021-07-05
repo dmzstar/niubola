@@ -78,7 +78,7 @@ class IndexTestPage extends Page {
   @IgnorePostback
   */
   @IgnorePostback
-  def onload = {
+  override def onload = {
 
     println(s">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> onload $id")
     //id = Faces.getRequestParameter("")
@@ -118,7 +118,7 @@ class EditPage extends Page {
   @Deferred
   @RequestAction
   @IgnorePostback
-  def onload = {
+  override def onload = {
 
     println(s">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> onload $id")
     //id = Faces.getRequestParameter("")
@@ -130,6 +130,8 @@ class EditPage extends Page {
   def save() = {
     println(s">>>>>>>>>>>>>>>>>>>>>>>>>>>>> save $id")
     user = userRepository.findBy(id)
+    userRepository.save(user)
+    successMessage("growl","Success!")
   }
 
 }
@@ -161,7 +163,7 @@ class ShowPage extends Page {
   @Deferred
   @RequestAction
   @IgnorePostback
-  def onload = {
+  override def onload = {
 
     name = param("name")
     println(s">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> showPage onload id:$id, name:$name")

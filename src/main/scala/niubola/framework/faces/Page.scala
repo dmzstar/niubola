@@ -37,6 +37,17 @@ class Page extends Serializable {
     Faces.getRequestParameter(name)
   }
 
+  final def afterRestoreView = {
+    var pageBean:AnyRef = Faces.getViewAttribute("_page")
+    if(pageBean == null){
+      Faces.setViewAttribute("_page",this)
+    }
+  }
+
+  def onload() = {
+
+  }
+
   def lazyModel[E](b: => QueryResult[E]) = {
     new LazyDataModel[AnyRef] {
 
