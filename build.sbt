@@ -109,8 +109,17 @@ libraryDependencies += "org.hibernate" % "hibernate-jpamodelgen" % hibernateVers
 libraryDependencies += "com.github.adminfaces" % "admin-template" % adminfacesVersion
 
 
+// https://mvnrepository.com/artifact/org.apache.shiro/shiro-web
+libraryDependencies += "org.apache.shiro" % "shiro-core" % "1.7.1"
+// https://mvnrepository.com/artifact/org.apache.shiro/shiro-web
+libraryDependencies += "org.apache.shiro" % "shiro-web" % "1.7.1"
+// https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils
+libraryDependencies += "commons-beanutils" % "commons-beanutils" % "1.9.4"
+
+
+
 //security
-libraryDependencies += "org.pac4j" % "pac4j-core" % "3.5.0"
+//libraryDependencies += "org.pac4j" % "pac4j-core" % "3.5.0"
 
 
 
